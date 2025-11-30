@@ -15,6 +15,7 @@ import {
   Clock,
   CheckCircle,
   AlertCircle,
+  Languages,
 } from 'lucide-react'
 
 export default function NutriQadamApp() {
@@ -194,17 +195,15 @@ export default function NutriQadamApp() {
               <span className='text-gray-700'>Parent Account</span>
             </button>
           </div>
-
-          <button
-            className='md:hidden p-2'
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? (
-              <X className='w-6 h-6' />
-            ) : (
-              <Menu className='w-6 h-6' />
-            )}
-          </button>
+          <div className='flex md:hidden items-center space-x-2'>
+            <button>
+              {/* <Languages className='w-6 h-6 text-gray-500' /> */}
+            </button>
+            <button className='p-2 text-gray-600 hover:text-emerald-600 relative'>
+              <Bell className='w-6 h-6' />
+              <span className='absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full'></span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -792,48 +791,40 @@ export default function NutriQadamApp() {
         <div className='flex justify-around'>
           <button
             onClick={() => setActiveTab('dashboard')}
-            className='flex flex-col items-center'
+            className={`flex flex-col items-center  ${
+              activeTab === 'dashboard' ? 'text-emerald-600' : 'text-gray-400'
+            }`}
           >
-            <Calendar
-              className={`w-6 h-6 ${
-                activeTab === 'dashboard' ? 'text-emerald-600' : 'text-gray-400'
-              }`}
-            />
+            <Calendar className='w-6 h-6' />
             <span className='text-xs mt-1'>Home</span>
           </button>
           <button
             onClick={() => setActiveTab('profile')}
-            className='flex flex-col items-center'
+            className={`flex flex-col items-center  ${
+              activeTab === 'profile' ? 'text-emerald-600' : 'text-gray-400'
+            }`}
           >
-            <User
-              className={`w-6 h-6 ${
-                activeTab === 'profile' ? 'text-emerald-600' : 'text-gray-400'
-              }`}
-            />
+            <User className='w-6 h-6' />
             <span className='text-xs mt-1'>Profile</span>
           </button>
           <button
             onClick={() => setActiveTab('menu')}
-            className='flex flex-col items-center'
+            className={`flex flex-col items-center  ${
+              activeTab === 'menu' ? 'text-emerald-600' : 'text-gray-400'
+            }`}
           >
-            <FileText
-              className={`w-6 h-6 ${
-                activeTab === 'menu' ? 'text-emerald-600' : 'text-gray-400'
-              }`}
-            />
+            <FileText className='w-6 h-6' />
             <span className='text-xs mt-1'>Menu</span>
           </button>
           <button
             onClick={() => setActiveTab('subscription')}
-            className='flex flex-col items-center'
+            className={`flex flex-col items-center  ${
+              activeTab === 'subscription'
+                ? 'text-emerald-600'
+                : 'text-gray-400'
+            }`}
           >
-            <CreditCard
-              className={`w-6 h-6 ${
-                activeTab === 'subscription'
-                  ? 'text-emerald-600'
-                  : 'text-gray-400'
-              }`}
-            />
+            <CreditCard className='w-6 h-6' />
             <span className='text-xs mt-1'>Plans</span>
           </button>
         </div>
